@@ -5,6 +5,7 @@ version: '3'
 tasks:
   build:
     cmds:
+      - go mod tidy
       - go mod vendor
       - protoc --plugin=protoc-gen-go=$GOPATH/bin/protoc-gen-go_APIv1 --proto_path=. --go_out=paths=source_relative:. payment/payment.proto
       - go build **/*.go
