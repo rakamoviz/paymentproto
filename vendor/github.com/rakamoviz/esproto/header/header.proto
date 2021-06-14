@@ -1,0 +1,80 @@
+syntax = "proto3";
+
+package esproto.header;
+
+option go_package = "github.com/rakamoviz/esproto/header";
+
+import "google/protobuf/timestamp.proto";
+
+message Command {
+    string domain = 1;
+    
+    string id = 2;
+    string name = 3;    
+    
+    string aggregate_id = 4;
+    string aggregate_name = 5;
+    int32 aggregate_revision = 6; //for mvcc
+
+    string saga_id = 8;
+    string saga_name = 9;
+
+    string correlation_id = 10;
+    string correlation_type = 11; //can be job, http-request, batch, or anything.
+    
+    int32 version = 12;
+
+    google.protobuf.Timestamp created_at = 13;
+    google.protobuf.Timestamp sent_at = 14;
+}
+
+message Event {
+    string domain = 1;
+    
+    string id = 2;
+    string name = 3;  
+    
+    string aggregate_id = 4;
+    string aggregate_name = 5;
+    int32 aggregate_revision = 6; //for mvcc
+
+    string saga_id = 8; //if the command has saga_id, handler must copy the value to here
+    string saga_name = 9;
+
+    string correlation_id = 10;
+    string correlation_type = 11; //can be job, http-request, batch, anything.
+    
+    int32 version = 12;
+
+    google.protobuf.Timestamp created_at = 13;
+    google.protobuf.Timestamp sent_at = 14;
+}
+
+message Aggregate {
+    string domain = 1; //redis key: domain.aggregate.name.id
+    
+    string id = 2;
+    string name = 3;
+    int32 revision = 4;
+
+    google.protobuf.Timestamp created_at = 5;
+    google.protobuf.Timestamp updated_at = 6;
+}
+
+message Saga {
+    string domain = 1; //redis key: domain.aggregate.name.id
+    
+    string id = 2;
+    string name = 3;
+    int32 revision = 4;
+
+    google.protobuf.Timestamp created_at = 5;
+    google.protobuf.Timestamp updated_at = 6;
+}
+
+message Entity {    
+    string id = 1;
+
+    google.protobuf.Timestamp created_at = 2;
+    google.protobuf.Timestamp updated_at = 3;
+}

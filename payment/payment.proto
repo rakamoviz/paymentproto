@@ -1,0 +1,9 @@
+syntax = "proto3";
+package paymentproto.payment;
+import "vendor/github.com/rakamoviz/esproto/header/header.proto";
+
+option go_package = "github.com/rakamoviz/paymentproto/payment";
+
+message PaymentReceived {
+    esproto.header.Event header = 1;
+}
