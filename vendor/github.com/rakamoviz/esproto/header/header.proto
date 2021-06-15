@@ -28,6 +28,7 @@ message Command {
 
     google.protobuf.Timestamp created_at = 14;
     google.protobuf.Timestamp sent_at = 15;
+    google.protobuf.Timestamp received_at = 16; //actually the semantic is "consumed_at"
 }
 
 message Event {
@@ -51,6 +52,7 @@ message Event {
 
     google.protobuf.Timestamp created_at = 13;
     google.protobuf.Timestamp sent_at = 14;
+    google.protobuf.Timestamp received_at = 15; //actually the semantic is "consumed_at"
 }
 
 message Aggregate {

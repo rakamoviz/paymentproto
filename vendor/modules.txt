@@ -1,7 +1,7 @@
 # github.com/golang/protobuf v1.5.2
 ## explicit
 github.com/golang/protobuf/proto
-# github.com/rakamoviz/esproto v0.0.0-20210615134327-aca6ee2996f4
+# github.com/rakamoviz/esproto v0.0.0-20210615214102-61a514f82e96
 ## explicit
 github.com/rakamoviz/esproto/header
 # google.golang.org/protobuf v1.26.0
