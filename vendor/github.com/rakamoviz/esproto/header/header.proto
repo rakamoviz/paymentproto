@@ -15,6 +15,7 @@ message Command {
     string aggregate_id = 4;
     string aggregate_name = 5;
     int32 aggregate_revision = 6; //for mvcc
+    bool aggregate_existing = 7;
 
     string saga_id = 8;
     string saga_name = 9;
@@ -39,17 +40,17 @@ message Event {
     string aggregate_name = 5;
     int32 aggregate_revision = 6; //for mvcc
 
-    string saga_id = 8; //if the command has saga_id, handler must copy the value to here
-    string saga_name = 9;
+    string saga_id = 7; //if the command has saga_id, handler must copy the value to here
+    string saga_name = 8;
 
-    string correlation_id = 10;
-    string correlation_type = 11; //can be command, event, job, http-request, batch, anything.
-    string correlation_name = 12; //can be event-name, command-name, http-url, etc
+    string correlation_id = 9;
+    string correlation_type = 10; //can be command, event, job, http-request, batch, anything.
+    string correlation_name = 11; //can be event-name, command-name, http-url, etc
     
-    int32 version = 13;
+    int32 version = 12;
 
-    google.protobuf.Timestamp created_at = 14;
-    google.protobuf.Timestamp sent_at = 15;
+    google.protobuf.Timestamp created_at = 13;
+    google.protobuf.Timestamp sent_at = 14;
 }
 
 message Aggregate {
