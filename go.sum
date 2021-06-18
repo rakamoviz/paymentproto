@@ -3,8 +3,8 @@ github.com/golang/protobuf v1.5.2 h1:ROPKBNFfQgOUMifHyP+KYbvpjbdoFNs+aK7DXlji0Tw
 github.com/golang/protobuf v1.5.2/go.mod h1:XVQd3VNwM+JqD3oG2Ue2ip4fOMUkwXdXDdiuN0vRsmY=
 github.com/google/go-cmp v0.5.5 h1:Khx7svrCpmxxtHBq5j2mp/xVjsi8hQMfNLvJFAlrGgU=
 github.com/google/go-cmp v0.5.5/go.mod h1:v8dTdLbMG2kIc/vJvl+f65V22dbkXbowE6jgT/gNBxE=
-github.com/rakamoviz/esproto v0.0.0-20210618142315-84e434177870 h1:XKOV8d4yTtDm/B9cFct5MaGyGPX0gKkj1nQQoKO/uTw=
-github.com/rakamoviz/esproto v0.0.0-20210618142315-84e434177870/go.mod h1:xb7WisG9v9Huzgx+htcA0tcIlqxFJEzlnVd52WE/sVo=
+github.com/rakamoviz/esproto v0.0.0-20210618152249-eb6c7a2c126c h1:BhNOjktV3rbR0TXnG0NKpSXStwnjVfDlQogDPG7viIc=
+github.com/rakamoviz/esproto v0.0.0-20210618152249-eb6c7a2c126c/go.mod h1:xb7WisG9v9Huzgx+htcA0tcIlqxFJEzlnVd52WE/sVo=
 golang.org/x/xerrors v0.0.0-20191204190536-9bdfabe68543 h1:E7g+9GITq07hpfrRu66IVDexMakfv52eLZ2CXBWiKr4=
 golang.org/x/xerrors v0.0.0-20191204190536-9bdfabe68543/go.mod h1:I/5z698sn9Ka8TeJc9MKroUUfqBBauWjQqLJ2OPfmY0=
 google.golang.org/protobuf v1.26.0-rc.1/go.mod h1:jlhhOSvTdKEhbULTjvd4ARK9grFBp09yW+WbY/TyQbw=
