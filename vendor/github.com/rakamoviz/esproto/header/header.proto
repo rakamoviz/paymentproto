@@ -6,6 +6,14 @@ option go_package = "github.com/rakamoviz/esproto/header";
 
 import "google/protobuf/timestamp.proto";
 
+//DONT DELETE
+//event produced by execution of command over an aggregate
+//must be applied first on the target aggregate, before being forwarded to
+//saga
+//the trick is.... event handler (of an aggregate) 
+//must forward that event to another topic, by convention: "--saga"
+
+
 message Command {
     string domain = 1;
     
@@ -41,18 +49,19 @@ message Event {
     string aggregate_name = 5;
     int32 aggregate_revision = 6; //for mvcc
 
-    string saga_id = 7; //if the command has saga_id, handler must copy the value to here
+    string saga_id = 7;
     string saga_name = 8;
+    int32 saga_revision = 9;
 
-    string correlation_id = 9;
-    string correlation_type = 10; //can be command, event, job, http-request, batch, anything.
-    string correlation_name = 11; //can be event-name, command-name, http-url, etc
+    string correlation_id = 10;
+    string correlation_type = 11; //can be command, event, job, http-request, batch, anything.
+    string correlation_name = 12; //can be event-name, command-name, http-url, etc
     
-    int32 version = 12;
+    int32 version = 13;
 
-    google.protobuf.Timestamp created_at = 13;
-    google.protobuf.Timestamp sent_at = 14;
-    google.protobuf.Timestamp received_at = 15; //actually the semantic is "consumed_at"
+    google.protobuf.Timestamp created_at = 14;
+    google.protobuf.Timestamp sent_at = 15;
+    google.protobuf.Timestamp received_at = 16; //actually the semantic is "consumed_at"
 }
 
 message Aggregate {
@@ -61,10 +70,9 @@ message Aggregate {
     string id = 2;
     string name = 3;
     int32 revision = 4;
-    bool is_saga = 5; //saga is special type of aggregate
 
-    google.protobuf.Timestamp created_at = 6;
-    google.protobuf.Timestamp updated_at = 7;
+    google.protobuf.Timestamp created_at = 5;
+    google.protobuf.Timestamp updated_at = 6;
 }
 
 message Entity {    
